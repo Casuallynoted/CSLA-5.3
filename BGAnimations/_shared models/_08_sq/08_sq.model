@@ -1,0 +1,4 @@
+[Model]
+Meshes=08_sq_mesh.txt
+Materials=08_sq_materials.txt
+Bones=08_sq_bones.txt

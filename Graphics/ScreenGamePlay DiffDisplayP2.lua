@@ -1,0 +1,1 @@
+return LoadActor(THEME:GetPathG("DiffDisplay","frame"),PLAYER_2);

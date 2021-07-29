@@ -1,0 +1,4 @@
+[Model]
+Meshes=l_wall2_mesh.txt
+Materials=l_wall2_materials.txt
+Bones=l_wall2_bones.txt

@@ -1,0 +1,1 @@
+return LoadActor(THEME:GetPathG("RivalDisplay","Text"),PLAYER_1);

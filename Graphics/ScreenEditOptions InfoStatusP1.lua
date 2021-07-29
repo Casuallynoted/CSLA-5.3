@@ -1,0 +1,1 @@
+return LoadActor(THEME:GetPathG("","Infostatus"),PLAYER_1);

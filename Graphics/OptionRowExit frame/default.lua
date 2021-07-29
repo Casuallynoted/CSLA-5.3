@@ -1,0 +1,23 @@
+return Def.ActorFrame{
+	LoadActor("_triangle")..{
+		--effectdelay,.6;
+		InitCommand=cmd(blend,Blend.Add;x,-38;diffuseblink;effectcolor1,color("0.6,0.6,0.6,1");effectperiod,0.4;effectoffset,0.2;effectclock,"beat");
+		GainFocusCommand=cmd(stoptweening;linear,0.15;rotationz,-90);
+		LoseFocusCommand=cmd(stoptweening;linear,0.15;rotationz,0);
+		ExitSelectedP1Command=cmd(stoptweening;linear,0.15;rotationz,-90);
+		ExitUnselectedP1Command=cmd(stoptweening;linear,0.15;rotationz,0);
+	};
+	LoadActor("_triangle")..{
+		--effectdelay,.6;
+		InitCommand=cmd(blend,Blend.Add;x,38;diffuseblink;effectcolor1,color("0.6,0.6,0.6,1");effectperiod,0.4;effectoffset,0.2;effectclock,"beat");
+		GainFocusCommand=cmd(stoptweening;linear,0.15;rotationz,90);
+		LoseFocusCommand=cmd(stoptweening;linear,0.15;rotationz,0);
+		ExitSelectedP2Command=cmd(stoptweening;linear,0.15;rotationz,90);
+		ExitUnselectedP2Command=cmd(stoptweening;linear,0.15;rotationz,0);
+	};
+	LoadActor("moreexit")..{
+		InitCommand=cmd(y,-19;croptop,0.57;cropbottom,.1);
+		GainFocusCommand=cmd(stoptweening;linear,0.15;y,-16;croptop,0.57;cropbottom,0.1);
+		LoseFocusCommand=cmd(stoptweening;linear,0.15;y,16;croptop,0.07;cropbottom,0.6);
+	};
+};

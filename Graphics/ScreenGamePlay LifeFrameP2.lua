@@ -1,0 +1,1 @@
+return LoadActor(THEME:GetPathG("","GameFSet/Life"),PLAYER_2);

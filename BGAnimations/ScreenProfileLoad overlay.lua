@@ -1,0 +1,20 @@
+local t = Def.ActorFrame{};
+
+t[#t+1] = LoadFont("_shared2")..{
+	InitCommand=function(self)
+		self:settext(Screen.String("Loading Profiles"));
+		(cmd(horizalign,right;x,SCREEN_RIGHT-30;y,SCREEN_BOTTOM-30;diffuse,color("1,0.6,0,1");strokecolor,Color("Black");diffusealpha,0;zoom,0.65))(self);
+	end;
+	OnCommand=cmd(linear,0.15;diffusealpha,1);
+	OffCommand=cmd(linear,0.15;diffusealpha,0);
+};
+
+t[#t+1] = Def.Actor {
+	BeginCommand=function(self)
+		if SCREENMAN:GetTopScreen():HaveProfileToLoad() then self:sleep(0); end;
+		self:queuecommand("Load");
+	end;
+	LoadCommand=function() SCREENMAN:GetTopScreen():Continue(); end;
+};
+
+return t;

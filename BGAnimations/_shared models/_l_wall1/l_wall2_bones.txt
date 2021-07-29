@@ -1,0 +1,7 @@
+Bones: 0
+GroupComments: 0
+MaterialComments: 1
+0
+1
+BoneComments: 0
+ModelComment: 0
