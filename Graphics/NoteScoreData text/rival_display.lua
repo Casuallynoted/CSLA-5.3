@@ -73,7 +73,7 @@ end;
 local rtnum = 1;
 local rtset = notset_text;
 local ttable = rtableset(pn);
-local adgraph = ProfIDPrefCheck("ScoreGraph",pstr,"Off");
+local adgraph = ProfIDPrefCheck("ScoreGraph",pstr,"Off") or "Off";
 if adgraph ~= getenv("scoregraphp"..p) then
 	adgraph = getenv("scoregraphp"..p);
 	SetAdhocPref("ScoreGraph",adgraph,pstr);
@@ -460,9 +460,11 @@ t[#t+1] = Def.ActorFrame{
 								end;
 							end;
 						end;
-						if string.sub(adgraph,7) == string.sub(pg_hs[1][sr][2],1) then
-							rival[pg_hs[2]] = sr;
-						end;
+						if adgraph then
+							if string.sub(adgraph,7) == string.sub(pg_hs[1][sr][2],1) then
+								rival[pg_hs[2]] = sr;
+							end;
+						end
 					end;
 					if avg_total > 0 and avg_count > 0 then
 						migsav[pg_hs[5]] = math.floor(avg_total / avg_count);
@@ -491,35 +493,37 @@ t[#t+1] = Def.ActorFrame{
 							end;
 						end;
 					end;
-					if string.find(adgraph,"Tier") then
-						adhoc[pg_hs[2]] = THEME:GetMetric("PlayerStageStats","GradePercent"..pg_hs[3]..adgraph);
-						migsadhoc[pg_hs[2]] = math.ceil(migsmaxchecker(hs,pg_hs[2]) * tonumber(adhoc[pg_hs[2]]));
-					elseif string.find(adgraph,"^MyBest_.*") then
-					elseif adgraph == "MyBest" then
-						if PROFILEMAN:IsPersistentProfile(pn) then
-							migsadhoc[pg_hs[2]] = pg_hs[1][cpn[pg_hs[5]]][4];
-						end;
-					elseif string.find(adgraph,"^RIVAL_.*") then
-						if adgraph ~= "RIVAL_Average" then
-							if adgraph == "RIVAL_TopScore" then
-								setnum[pg_hs[2]] = 1;
-							elseif adgraph == "RIVAL_On1rank" then
-								setnum[pg_hs[2]] = on1rank[pg_hs[2]];
-							else setnum[pg_hs[2]] = rival[pg_hs[2]];
+					if adgraph then
+						if string.find(adgraph,"Tier") then
+							adhoc[pg_hs[2]] = THEME:GetMetric("PlayerStageStats","GradePercent"..pg_hs[3]..adgraph);
+							migsadhoc[pg_hs[2]] = math.ceil(migsmaxchecker(hs,pg_hs[2]) * tonumber(adhoc[pg_hs[2]]));
+						elseif string.find(adgraph,"^MyBest_.*") then
+						elseif adgraph == "MyBest" then
+							if PROFILEMAN:IsPersistentProfile(pn) then
+								migsadhoc[pg_hs[2]] = pg_hs[1][cpn[pg_hs[5]]][4];
 							end;
-							if pg_hs[1][setnum[pg_hs[2]]][2] then
-								migsadhoc[pg_hs[2]] = pg_hs[1][setnum[pg_hs[2]]][4];
-								if pg_hs[1][setnum[pg_hs[2]]][7] < c_x_m[1] then
-									pg_hs[1][setnum[pg_hs[2]]][7] = c_x_m[2];
+						elseif string.find(adgraph,"^RIVAL_.*") then
+							if adgraph ~= "RIVAL_Average" then
+								if adgraph == "RIVAL_TopScore" then
+									setnum[pg_hs[2]] = 1;
+								elseif adgraph == "RIVAL_On1rank" then
+									setnum[pg_hs[2]] = on1rank[pg_hs[2]];
+								else setnum[pg_hs[2]] = rival[pg_hs[2]];
 								end;
+								if pg_hs[1][setnum[pg_hs[2]]][2] then
+									migsadhoc[pg_hs[2]] = pg_hs[1][setnum[pg_hs[2]]][4];
+									if pg_hs[1][setnum[pg_hs[2]]][7] < c_x_m[1] then
+										pg_hs[1][setnum[pg_hs[2]]][7] = c_x_m[2];
+									end;
+								end;
+							else
+								migsadhoc[pg_hs[2]] = sctable[pg_hs[4]+2];
 							end;
-						else
-							migsadhoc[pg_hs[2]] = sctable[pg_hs[4]+2];
+						elseif tonumber(adgraph) then
+							migsadhoc[pg_hs[2]] = math.ceil(migsmaxchecker(hs,pg_hs[2]) * tonumber(adgraph));
+						else migsadhoc[pg_hs[2]] = 0;
 						end;
-					elseif tonumber(adgraph) then
-						migsadhoc[pg_hs[2]] = math.ceil(migsmaxchecker(hs,pg_hs[2]) * tonumber(adgraph));
-					else migsadhoc[pg_hs[2]] = 0;
-					end;
+					end
 
 					--if sctable[1] then
 						--Trace("sctable :"..sctable[1]);
