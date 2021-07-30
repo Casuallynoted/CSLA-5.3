@@ -7,8 +7,6 @@ Should work with nearly all game modes (aside from ones specified in the "Known 
 Global:
 -Some events (Such as getting a perfect score on a song) trigger an easter egg feature which no longer appears to be functional and can cause errors. It's advised to disable this feature in the theme settings for now.
 
--Warning/Loading screen appears to be skewed toward the right on certain aspect ratios (notably 16:10)
-
 -Style Options are not displayed by song difficulties. They are still selectable, but it is unclear which mode was chosen until the song has been entered. Style does display after completion, but does not update when changing difficulties/styles.
 
 -Video options are currently using the old video options config, need to be updated to new config. Currently, trying to adjust video options while in this theme will crash the game. It is advised to switch to a different them to adjust video options until this is fixed.
