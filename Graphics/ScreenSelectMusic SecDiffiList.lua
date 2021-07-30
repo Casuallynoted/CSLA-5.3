@@ -19,6 +19,8 @@ local cdiffx = {0,0};
 if GAMESTATE:GetCurrentStyle() then
 local style = GAMESTATE:GetCurrentStyle();
 local stepsType = style:GetStepsType();
+else
+local stepsType = GAMESTATE:GetCurrentSteps(PLAYER_1);
 end;
 
 --[ja] 難易度カーソル

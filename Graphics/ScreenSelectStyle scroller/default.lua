@@ -12,7 +12,9 @@ local s_table = {
 	Versus	= {3,0,0,1,"Lose","allmode"},
 	Double	= {4,0,1,1,"Lose","notbattle"},
 	HalfDouble	= {5,0,1,1,"Lose","notbattle"}
+
 };
+
 local choice = "Single";
 
 local function setgl(self,choice)

@@ -14,6 +14,7 @@ local s_table = {
 	Double	= {4,0,1,1,"Lose",0.175},
 	HalfDouble	= {3,0,1,1,"Lose",0.13}
 };
+
 if CurGameName() == "dance" then
 	table.remove(s_table["HalfDouble"]);
 elseif CurGameName() == "pump" then
@@ -21,7 +22,9 @@ elseif CurGameName() == "pump" then
 	table.remove(s_table["Solo"]);
 end;
 
+
 local choice = "Single";
+
 local slsec = s_table[gc:GetName()][6];
 
 local function setgl(self,choice)
@@ -76,6 +79,7 @@ if CurGameName() == "pump" then
 	if gc:GetName() == "Versus" then slsec = slsec / 2;
 	end;
 end;
+
 
 local t = Def.ActorFrame{};
 

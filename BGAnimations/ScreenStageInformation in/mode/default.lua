@@ -24,7 +24,7 @@ if pm then
 	};
 end;
 
-local style = GAMESTATE:GetCurrentStyle();
+--[[local style = GAMESTATE:GetCurrentStyle();
 if style then
 	local st = style:GetName();
 	t[#t+1] = Def.ActorFrame {
@@ -39,6 +39,6 @@ if style then
 						linear,0.1;rotationz,-45;linear,0.1;addx,100;addy,-100;diffusealpha,0;zoomy,0);
 		};
 	};
-end;
+end;]]
 
 return t;

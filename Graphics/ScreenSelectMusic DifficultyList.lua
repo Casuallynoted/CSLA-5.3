@@ -10,7 +10,7 @@ local t = Def.ActorFrame {
 			if CurSOSet() then self:visible(true);
 			end;
 		end;
-		CurrentCourseChangedMessageCommand=cmd(playcommand,"CurrentSongChangedMessage";);
+		CurrentCourseChangedMessageCommand=cmd(playcommand,"CurrentSongChangedMessage");
 		CursorP1 = Def.ActorFrame {
 			InitCommand=cmd(x,-20;rotationz,90;player,PLAYER_1);
 			PlayerJoinedMessageCommand=function(self, params)
@@ -80,6 +80,7 @@ local t = Def.ActorFrame {
 			ChangeCommand=cmd(stoptweening;decelerate,0.05);
 		};
 	};
-};
+}
+;
 
 return t;
