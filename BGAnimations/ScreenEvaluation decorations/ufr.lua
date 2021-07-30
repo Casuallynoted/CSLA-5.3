@@ -271,6 +271,8 @@ if getenv("evacountupflag") == 1 then
 				if ccname == "Elco" and tobool(GetAdhocPref("CSLAEasterEggs")) == true then
 					if tonumber( ccCount ) >= 1 and tonumber(ymd) >= 20160211 then
 						ccCount = math.max(ccCount,2);
+					elseif tonumber( ccCount) <= 0 then
+						
 					elseif tonumber(ymd) >= 20151129 then
 						ccCount = math.max(ccCount,1);
 					end;
