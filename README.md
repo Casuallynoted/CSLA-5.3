@@ -10,9 +10,5 @@ Global:
 -Most Game Modes aside from Dance and Pump do not have style graphics yet. Will show as "Graphic Unavailable" in the top right corner of the music selection screen until an image is present.
 
 GDGF:
--Notes are too high up on the screen/cut into life bar
+-Some noteskins are too high up on the screen/cut into life bar
 
--Note presses don't appear to register
-
-Taiko:
--Pressing the "s" and "d" keys on a keyboard to hit the red notes appears to end/auto-clear the song. Both blue keys ("a" and "f") do not do this. Will research further.
