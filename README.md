@@ -13,6 +13,8 @@ Global:
 
 -Most Game Modes aside from Dance and Pump do not have style graphics yet.
 
+-Audio settings are ignored, contniually plays at one single volume.
+
 GDGF:
 -Notes are too high up on the screen/cut into life bar
 
