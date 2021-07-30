@@ -43,7 +43,10 @@ t[#t+1] = Def.ActorFrame{
 	};
 	Def.BitmapText{
 		Name="styletext",
-		Font="_Shared2"
+		Font="_Shared2",
+		InitCommand = function(self)
+			self:rotationz(90):zoom(0.75):x(-30):maxwidth(120)
+		end
 	},
 	SetCommand=function(self, param)
 		local difftable = self:GetChild('difftable');
@@ -62,7 +65,8 @@ t[#t+1] = Def.ActorFrame{
 			meter = param.Meter;
 			difftable:visible(true);
 			difftable:setstate(CustomDifficultyToState[cdiff]);
-			styletext:settext(step:GetChartStyle())
+			local sString = THEME:GetString("StepsType",ToEnumShortString(param.StepsType));
+			styletext:settext(sString)
 			--if getenv("wheelstop") == 1 and getenv("rnd_song") == 0 then
 			if getenv("wheelstop") == 1 then
 				song = GAMESTATE:GetCurrentSong();
